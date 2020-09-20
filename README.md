@@ -5,107 +5,86 @@ Design and prototype a car rental system using object-oriented principles.
 
 Functionality:<br />
 •	In-Scope
-<ul>
-<li>The system should let a customer reserve a car of a given type at a desired date and time for a given number of days</li>
-<li>The number of cars of each type is limited, but customers should be able to reserve a single rental car for multiple, non-overlapping time frames</li>
-<li>Provide a Junit test that illustrates the core reservation workflow and demonstrates its correctness</li>
-<li>Use Java as the implementation language.</li>
-<li>ohe solution should allow for an extension to be exposed as a service</li>
-</ul>
+		<ul>
+		<li>The system should let a customer reserve a car of a given type at a desired date and time for a given number of days</li>
+		<li>The number of cars of each type is limited, but customers should be able to reserve a single rental car for multiple, non-overlapping time frames</li>
+		<li>Provide a Junit test that illustrates the core reservation workflow and demonstrates its correctness</li>
+		<li>Use Java as the implementation language.</li>
+		<li>ohe solution should allow for an extension to be exposed as a service</li>
+		</ul>
 •	Out of Scope
-<ul>
-<li>No UI needs to be provided</li>
-<li>No need to explicitly suspend the solution in a web container, e.g. using spring boot</li>
-<li>No need to explicitly integrate the solution with a database.</li>
-</ul>
+		<ul>
+		<li>No UI needs to be provided</li>
+		<li>No need to explicitly suspend the solution in a web container, e.g. using spring boot</li>
+		<li>No need to explicitly integrate the solution with a database.</li>
+		</ul>
 Constraints and Risks:
-<ul>
- <li>This is an assessment task and should be delivered within 2 to 5 hours.</li>
-<li>Due to time constraints, extensive testing is not performed.</li>
-<li>Lots of assumptions have been made due to the absence of a requirement provider.</li>
-<li>There can be multiple solutions to same the same problem but due to time constraints all solutions are not explored and there is always room for improvement. Some of them are mentioned in the “Future enhancements” section.</li>
-<li>Due to time constraints, no UML diagram is used. Instead, they are discussed in the Implementation section as a Text.</li>
-
-</ul>
+	<ul>
+			 <li>This is an assessment task and should be delivered within 2 to 5 hours.</li>
+			<li>Due to time constraints, extensive testing is not performed.</li>
+			<li>Lots of assumptions have been made due to the absence of a requirement provider.</li>
+			<li>There can be multiple solutions to same the same problem but due to time constraints all solutions are not explored and there is always room for improvement. Some of them are mentioned in the “Future enhancements” section.</li>
+			<li>Due to time constraints, no UML diagram is used. Instead, they are discussed in the Implementation section as a Text.</li>
+	</ul>
+	
 Implementation:<br />
-This section describes the high-level approach that is used for implementation and describes the component and classes in text notation instead of the UML and Sequence diagram.<br />
+This section describes the high-level approach that is used for implementation and describes the component and classes in text notation instead of the UML and Sequence diagram.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <ul>
-<li>The system code is divided into multiple packages. Model, Dao, Dao Implementation, Service, Exception, and Unit Test.</li>
-<li>Model </li>
-<ul>
-	<li>The model contains the domain classes for the rental system.</li>
-</ul>
+	 <ul>
+		<li>The system code is divided into multiple packages. Model, Dao, Dao Implementation, Service, Exception, and Unit Test.</li>
+		<li>Model </li>
+			<ul>
+			<li>The model contains the domain classes for the rental system.</li>
+		</ul>
 	
 	
 	
-<li>Dao</li>	
-<ul>
-	<li>Dao is divided into three groups.</li> 
+		<li>Dao</li>	
+		<ul>
+			<li>Dao is divided into three groups.</li> 
+	 
+				<ul>
+					<li>Dao Interface</li> 
+					<li>AbstractDao</li>  
+					<li>DaoImpl</li>  
+				</ul>
+		 
+			<li>Interfaces have only general abstract methods that any data layer API is expected to have.</li>
+			<li>AbstractDao has the general functionality that every concrete Dao implementation is expected to have. </li>
+			<li>LocalDao has been implemented as a concrete extension of the Dao interface. </li>
+			<li>LocalDao classes serve as the local fixed data source for the system. </li>
+			<li>There shall be separate concrete implementation for each data source. For example, we can have OracleDaoImpl for an oracle data source, S3DaoImpl for S3 data source, RestDaoImpl for the restful API data source.</li>
+		</ul>
 
-
-</ul>
-
-
-
-
-
-
-
-
-<li>Service:</li>
-<ul>
-<li>Service classes are the meat of the implementation from the API user perspective. </li>
-<li>API users shall use classes to interact with the system.</li>
-<li>Again, due to time constraint service class are provided as Concrete implementation and not Interface/Abstract object hierarchy is established. </li>
-<li>Also, the Dao hierarchy is good enough to handle Concrete Service implementation for this task.</li>
-</ul>
-
-
-
+		<li>Service:</li>
+		<ul>
+		<li>Service classes are the meat of the implementation from the API user perspective. </li>
+		<li>API users shall use classes to interact with the system.</li>
+		<li>Again, due to time constraint service class are provided as Concrete implementation and not Interface/Abstract object hierarchy is established. </li>
+		<li>Also, the Dao hierarchy is good enough to handle Concrete Service implementation for this task.</li>
+		</ul>
  
 
 
-<li>Exceptions:</li>
-<ul>
-<li>Exception classes are used to define unexpected conditions.</li>
-<li>Also, classes are made as an unchecked exception to make code less polluted. But this the thing that can be revisited.</li>
-</ul>
+		<li>Exceptions:</li>
+		<ul>
+		<li>Exception classes are used to define unexpected conditions.</li>
+		<li>Also, classes are made as an unchecked exception to make code less polluted. But this the thing that can be revisited.</li>
+		</ul>
 
 
-<li>Unit Test:</li>
-<ul>
-<li>Three test classes have been implemented as a part of the implementation.</li>
-<li>ReservationServiceTest, have the basic flow of the reservation and system correctness. It has the test to reserve a valid car for the valid customer, this is our happy flow. Is also has a negative test that shows how a car cannot be reserved by the same customer for the overlapping duration.</li>
-<li>The other two test classes, check the validity of the car and customer.</li>
-<li>No tests have been written for the inventory</li>
-</ul>
-
-
-
+		<li>Unit Test:</li>
+		<ul>
+		<li>Three test classes have been implemented as a part of the implementation.</li>
+		<li>ReservationServiceTest, have the basic flow of the reservation and system correctness. It has the test to reserve a valid car for the valid customer, this is our happy flow. Is also has a negative test that shows how a car cannot be reserved by the same customer for the overlapping duration.</li>
+		<li>The other two test classes, check the validity of the car and customer.</li>
+		<li>No tests have been written for the inventory</li>
+		</ul>
 
 </ul>
 
-
-<ul>
-<li></li>
-</ul>
+ 
 
 
 
