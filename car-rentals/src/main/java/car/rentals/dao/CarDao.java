@@ -11,4 +11,4 @@ public interface CarDao {
 	public List<CarType> getCarTypes();
 	public Car findCarById(Long carId);
 	public Car findCar(Car car);
-}
+} 
