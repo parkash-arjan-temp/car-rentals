@@ -160,31 +160,10 @@ Future enhancements:</br>
 
 <ul>
  
-<li>•	The system is highly focused on one type of vehicle, that is the car. As an enhancement, we should design a Vehicle hierarchy as a more generalized form for the enhanced system. With the Vehicle hierarchy in place, we can reserve cars, bikes, bicycles etc. But more discussion and specific requirements are needed before diving into the design.</li>
-<li>•	Concrete Dao Implementation classes should be outsourced to another child maven project. Only Interface and AbstractDao classes should be part of the core reservation system. </li>
-<li>•	It will be difficult to do Object Relational Mapping with LocalDate class. So, we should look for more ORM friendly class in case our data source a database, and we planning to use ORM.</li>
-<li>•	Exception classes can be revisited. We can have a combination of checked and unchecked exceptions. But it needs more analysis of the system and the client. For example, if the service is exposed to a rest client then the client will only concern with the HTTP response code. And in this case, the definition and use of exception classes will be handled by the service developer. But if the service is exposed as a Java API then exception handling will become the shared responsibility of the service developer and service client.</li>
-<li>•	Better naming conventions for packages and classes</li>
-<li>•	Since in software engineering only constant thing is change, so there could be more enhancements.</li>
+<li>The system is highly focused on one type of vehicle, that is the car. As an enhancement, we should design a Vehicle hierarchy as a more generalized form for the enhanced system. With the Vehicle hierarchy in place, we can reserve cars, bikes, bicycles etc. But more discussion and specific requirements are needed before diving into the design.</li>
+<li>Concrete Dao Implementation classes should be outsourced to another child maven project. Only Interface and AbstractDao classes should be part of the core reservation system. </li>
+<li>It will be difficult to do Object Relational Mapping with LocalDate class. So, we should look for more ORM friendly class in case our data source a database, and we planning to use ORM.</li>
+<li>Exception classes can be revisited. We can have a combination of checked and unchecked exceptions. But it needs more analysis of the system and the client. For example, if the service is exposed to a rest client then the client will only concern with the HTTP response code. And in this case, the definition and use of exception classes will be handled by the service developer. But if the service is exposed as a Java API then exception handling will become the shared responsibility of the service developer and service client.</li>
+<li>Better naming conventions for packages and classes</li>
+<li>Since in software engineering only constant thing is change, so there could be more enhancements.</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
