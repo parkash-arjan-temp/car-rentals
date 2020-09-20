@@ -52,25 +52,23 @@ This section describes the high-level approach that is used for implementation a
 <ul>
 	<li>The model contains the domain classes for the rental system.</li>
 </ul>
-
-<li>Dao</li>
 	
+	
+	
+<li>Dao</li>	
 <ul>
-Dao is divided into three groups.
-<li>
-<ul>
-<li>Dao Interface</li>
-<li>AbstractDao </li>
-<li>DaoImpl</li>
-</ul>
- 
+	<li>Dao is divided into three groups.</li> 
+
+
 </ul>
 
-<li>Interfaces have only general abstract methods that any data layer API is expected to have. </li>
-<li>AbstractDao has the general functionality that every concrete Dao implementation is expected to have.  </li>
-<li>LocalDao has been implemented as a concrete extension of the Dao interface.  </li>
-<li>LocalDao classes serve as the local fixed data source for the system.  </li>
-<li>There shall be separate concrete implementation for each data source. For example, we can have OracleDaoImpl for an oracle data source, S3DaoImpl for S3 data source, RestDaoImpl for the restful API data source. </li>
+
+
+
+
+
+
+
 <li>Service:</li>
 <ul>
 <li>Service classes are the meat of the implementation from the API user perspective. </li>
