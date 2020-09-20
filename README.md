@@ -19,11 +19,14 @@ Functionality:<br />
 <li>No need to explicitly integrate the solution with a database.</li>
 </ul>
 Constraints and Risks:
-  •	This is an assessment task and should be delivered within 2 to 5 hours.
-  •	Due to time constraints, extensive testing is not performed.
-  •	Lots of assumptions have been made due to the absence of a requirement provider.
-  •	There can be multiple solutions to same the same problem but due to time constraints all solutions are not explored and there is always room for improvement. Some of them are mentioned in the “Future enhancements” section.
-  •	Due to time constraints, no UML diagram is used. Instead, they are discussed in the Implementation section as a Text.
+<ul>
+ <li>This is an assessment task and should be delivered within 2 to 5 hours.</li>
+<li>Due to time constraints, extensive testing is not performed.</li>
+<li>Lots of assumptions have been made due to the absence of a requirement provider.</li>
+<li>There can be multiple solutions to same the same problem but due to time constraints all solutions are not explored and there is always room for improvement. Some of them are mentioned in the “Future enhancements” section.</li>
+<li>Due to time constraints, no UML diagram is used. Instead, they are discussed in the Implementation section as a Text.</li>
+
+</ul>
 Implementation:
 This section describes the high-level approach that is used for implementation and describes the component and classes in text notation instead of the UML and Sequence diagram.
 •	The system code is divided into multiple packages. Model, Dao, Dao Implementation, Service, Exception, and Unit Test.
