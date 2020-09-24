@@ -1,5 +1,12 @@
 # car-rentals
 
+Change log:
+<ul>
+	<li>A new test has been as part of application feedback.</li>
+	<li>Changes are made in the assumption section.</li>
+	<li>Added new section “Data diagram”</li>
+	<li>A new class ServiceContainer has been added. This class serves as a Singleton factory for service classes class. In the absence of  IoC container writing and managing unit test and test data is a little tedious, so this class fills that gap. </li>
+</ul>	
 Description:
 Design and prototype a car rental system using object-oriented principles.
 
