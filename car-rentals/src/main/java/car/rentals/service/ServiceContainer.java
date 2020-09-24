@@ -51,7 +51,7 @@ public final class ServiceContainer {
 		if (carInventoryService == null) {
 			carInventoryService = new CarInventoryService();
 		}
-		return carInventoryService;
+		return carInventoryService; 
 
 	}
 
