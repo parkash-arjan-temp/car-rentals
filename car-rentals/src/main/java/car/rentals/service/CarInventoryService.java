@@ -14,7 +14,14 @@ public class CarInventoryService {
 	}
 
 	public boolean isCarAvailable(Long carId) {
-		return carInventoryDao.getNumberOfAvaiableCars(carId) > 0;
+		return carInventoryDao.findInventoryForCar(carId).getAvailable() > 0;
+	}
 
+	public void updateInventory(Long carId) {
+		carInventoryDao.updateInventory(carId);
+	}
+
+	public CarInventory findInventoryForCar(Long carId) {
+		return carInventoryDao.findInventoryForCar(carId);
 	}
 }

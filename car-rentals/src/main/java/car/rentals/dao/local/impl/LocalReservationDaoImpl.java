@@ -43,7 +43,9 @@ public class LocalReservationDaoImpl extends AbstractReservationDao {
 	}
 
 	private Long getNextReservationId() {
-		Reservation reservation = getReservations().stream().max(Comparator.comparing(Reservation::getReservationId))
+		Reservation reservation = getReservations()
+				.stream()
+				.max(Comparator.comparing(Reservation::getReservationId))
 				.orElseThrow(NoSuchElementException::new);
 		return reservation.getReservationId() + 1L;
 	}

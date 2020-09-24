@@ -22,9 +22,11 @@ public class ReservationService {
 	private ReservationDao reservationDao;
 
 	public ReservationService() {
-		customerService = new CustomerService();
-		carService = new CarService();
-		carInventoryService = new CarInventoryService();
+		ServiceContainer serviceFactory = ServiceContainer.getInstance();
+		customerService = serviceFactory.getCustomerService();
+		carService = serviceFactory.getCarService();
+		carInventoryService = serviceFactory.getCarInventoryService();
+
 		reservationDao = new LocalReservationDaoImpl();
 	}
 
@@ -94,6 +96,8 @@ public class ReservationService {
 
 			reservationDao.addReservation(new Reservation(car.getCarId(), customer.getCustomerId(), startDate,
 					startDate.plusDays(numberOfDays - 1L), numberOfDays));
+
+			carInventoryService.updateInventory(car.getCarId());
 
 			return true;
 		}

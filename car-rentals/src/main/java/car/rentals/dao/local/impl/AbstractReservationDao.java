@@ -8,7 +8,8 @@ import car.rentals.model.vo.Reservation;
 
 public abstract class AbstractReservationDao implements ReservationDao {
 	public List<Reservation> getReservationsByCustomer(Long customerId) {
-		return getReservations().stream()
+		return getReservations()
+				.stream()
 				.filter(reservation -> reservation.getCustomerId().longValue() == customerId.longValue())
 				.collect(Collectors.toList());
 

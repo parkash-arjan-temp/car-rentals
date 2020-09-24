@@ -22,7 +22,9 @@ public class LocalCarDaoImpl extends AbstractCarDao {
 	}
 
 	public List<CarType> getCarTypes() {
-		return Arrays.asList(new CarType(101L, "Sedan"), new CarType(102L, "Coupe"), new CarType(103L, "Hatchback"),
+		return Arrays.asList(new CarType(101L, "Sedan"), 
+				new CarType(102L, "Coupe"), 
+				new CarType(103L, "Hatchback"),
 				new CarType(104L, "Minivan"));
 	}
 

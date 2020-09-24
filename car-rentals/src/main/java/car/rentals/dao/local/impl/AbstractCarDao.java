@@ -9,6 +9,9 @@ public abstract class AbstractCarDao implements CarDao {
 	}
 
 	public Car findCarById(Long carId) {
-		return getCars().stream().filter(car -> car.getCarId().longValue() == carId.longValue()).findAny().orElse(null);
+		return getCars().stream()
+				.filter(car -> car.getCarId().longValue() == carId.longValue())
+				.findAny()
+				.orElse(null);
 	}
 }
