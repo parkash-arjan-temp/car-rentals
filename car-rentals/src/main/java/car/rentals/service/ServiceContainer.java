@@ -52,7 +52,6 @@ public final class ServiceContainer {
 			carInventoryService = new CarInventoryService();
 		}
 		return carInventoryService; 
-
 	}
 
 	public static void destroy() {
